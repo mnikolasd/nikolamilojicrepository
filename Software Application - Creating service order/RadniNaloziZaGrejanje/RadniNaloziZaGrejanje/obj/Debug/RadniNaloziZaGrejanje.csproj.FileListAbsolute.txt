@@ -1,0 +1,14 @@
+E:\Projects\ProjekatPA\RadniNaloziZaGrejanje\RadniNaloziZaGrejanje\bin\Debug\RadniNaloziZaGrejanje.exe.config
+E:\Projects\ProjekatPA\RadniNaloziZaGrejanje\RadniNaloziZaGrejanje\bin\Debug\RadniNaloziZaGrejanje.exe
+E:\Projects\ProjekatPA\RadniNaloziZaGrejanje\RadniNaloziZaGrejanje\bin\Debug\RadniNaloziZaGrejanje.pdb
+E:\Projects\ProjekatPA\RadniNaloziZaGrejanje\RadniNaloziZaGrejanje\obj\Debug\RadniNaloziZaGrejanje.csprojAssemblyReference.cache
+E:\Projects\ProjekatPA\RadniNaloziZaGrejanje\RadniNaloziZaGrejanje\obj\Debug\RadniNaloziZaGrejanje.frmPocetna.resources
+E:\Projects\ProjekatPA\RadniNaloziZaGrejanje\RadniNaloziZaGrejanje\obj\Debug\RadniNaloziZaGrejanje.Properties.Resources.resources
+E:\Projects\ProjekatPA\RadniNaloziZaGrejanje\RadniNaloziZaGrejanje\obj\Debug\RadniNaloziZaGrejanje.frmRad.resources
+E:\Projects\ProjekatPA\RadniNaloziZaGrejanje\RadniNaloziZaGrejanje\obj\Debug\RadniNaloziZaGrejanje.csproj.GenerateResource.cache
+E:\Projects\ProjekatPA\RadniNaloziZaGrejanje\RadniNaloziZaGrejanje\obj\Debug\RadniNaloziZaGrejanje.csproj.CoreCompileInputs.cache
+E:\Projects\ProjekatPA\RadniNaloziZaGrejanje\RadniNaloziZaGrejanje\obj\Debug\RadniNaloziZaGrejanje.exe
+E:\Projects\ProjekatPA\RadniNaloziZaGrejanje\RadniNaloziZaGrejanje\obj\Debug\RadniNaloziZaGrejanje.pdb
+E:\Projects\ProjekatPA\RadniNaloziZaGrejanje\RadniNaloziZaGrejanje\obj\Debug\RadniNaloziZaGrejanje.frmMaterijal.resources
+E:\Projects\ProjekatPA\RadniNaloziZaGrejanje\RadniNaloziZaGrejanje\obj\Debug\RadniNaloziZaGrejanje.frmPrijavaPretraga.resources
+E:\Projects\ProjekatPA\RadniNaloziZaGrejanje\RadniNaloziZaGrejanje\obj\Debug\RadniNaloziZaGrejanje.frmRadniNalog.resources
