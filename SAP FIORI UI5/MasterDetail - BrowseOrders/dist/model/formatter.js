@@ -1,0 +1,1 @@
+sap.ui.define([],function(){"use strict";return{currencyValue:function(e){if(!e){return""}return parseFloat(e).toFixed(2)},deliveryStatus:function(e){switch(e){case"N":return 5;case"P":return 1;case"X":return 3;case"C":return 7;default:return 7}},convertCurrencyCodeToSymbol:function(e){switch(e){case"USD":return"$";case"EUR":return"€";default:return e}}}});

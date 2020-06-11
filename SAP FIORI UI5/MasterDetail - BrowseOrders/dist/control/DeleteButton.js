@@ -1,0 +1,1 @@
+sap.ui.define(["sap/m/Button"],function(e){"use strict";return e.extend("opensap.orders.control.DeleteButton",{metadata:{dnd:{droppable:true}},renderer:{}})});
