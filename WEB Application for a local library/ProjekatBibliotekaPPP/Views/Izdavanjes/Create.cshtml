@@ -1,0 +1,53 @@
+﻿@model ProjekatBibliotekaPPP.Models.Izdavanje
+
+@{
+    ViewBag.Title = "Izdaj knjigu";
+}
+<head>
+
+</head>
+<style>
+    body {
+        background-image: url("../../Content/Images/izdavanja_1.jpg");
+        background-size: cover;
+    }
+
+    h2 {
+        color: #3A67A5;
+    }
+
+    .form-group {
+        color: #3A67A5;
+    }
+</style>
+<body>
+<h2>Izdaj: @Model.Knjiga.Naziv</h2>
+
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    
+    <div class="form-horizontal">
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" }) @Html.HiddenFor(model => model.KnjigaId) @Html.HiddenFor(model => model.DatumIzdavanja) @Html.HiddenFor(model => model.DatumVracanja)
+        <div class="form-group">
+            @Html.LabelFor(model => model.ClanID, "Clan", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">@Html.DropDownList("ClanID", null, htmlAttributes: new { @class = "form-control" }) @Html.ValidationMessageFor(model => model.ClanID, "", new { @class = "text-danger" })</div>
+        </div>
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Izdaj" class="btn btn-success"/>
+            </div>
+        </div>
+    </div>
+}
+
+<div>
+    @Html.ActionLink("Vrati se na listu izdavanja", "Index")
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}
+</body>

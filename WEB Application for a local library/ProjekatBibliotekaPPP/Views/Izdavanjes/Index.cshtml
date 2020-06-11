@@ -1,0 +1,154 @@
+﻿@model IEnumerable<ProjekatBibliotekaPPP.Models.Izdavanje>
+
+@{
+    ViewBag.Title = "Index";
+}
+<head>
+
+</head>
+<style>
+    body {
+        background-image: url("../../Content/Images/izdavanja_1.jpg");
+        background-size: cover;
+    }
+    table, td, tr {
+        border-top: 1px solid black;
+        border-bottom: 1px solid black;
+        font-weight: 700;
+        color: black;
+    }
+    table {
+        background-color: transparent;
+    }
+    h2 {
+        color: #3A67A5;
+        text-align-last: center;
+    }
+    th {
+        font-weight: 700;
+        color: #3A67A5;
+    }
+    #linija_velika {
+        border-top: 3px solid black;
+        border-bottom: 3px solid black;
+    }
+    #obrisanaPoruka2 {
+        border-top: hidden;
+        border-bottom: hidden;
+    }
+    #uspesno {
+        border-top: hidden;
+        border-bottom: hidden;
+    }
+    #uspesno1 {
+        border-top: hidden;
+        border-bottom: hidden;
+    }
+</style>
+<body>
+    <h2>Istorija izdavanja</h2>
+    <br />
+    <br />
+    <br />
+    @if (TempData["deleted"] != null)
+    {
+        <div class="alert alert-success">
+            <table>
+                <tr id="obrisanaPoruka2">
+                    <td>
+                        <b>@TempData["deleted"].ToString()</b>
+                    </td>
+                    <td class="col-xs-10">
+                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </td>
+                    <td></td>
+                </tr>
+            </table>
+        </div>
+    }
+    @if (TempData["uspeh"] != null)
+    {
+        <div class="alert alert-success">
+            <table>
+                <tr id="uspesno">
+                    <td>
+                        <b>@TempData["uspeh"].ToString()</b>
+                    </td>
+                    <td class="col-xs-10">
+                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </td>
+                    <td></td>
+                </tr>
+            </table>
+        </div>
+    }
+    @if (TempData["uspeh1"] != null)
+    {
+        <div class="alert alert-success">
+            <table>
+                <tr id="uspesno1">
+                    <td>
+                        <b>@TempData["uspeh1"].ToString()</b>
+                    </td>
+                    <td class="col-xs-10">
+                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </td>
+                    <td></td>
+                </tr>
+            </table>
+        </div>
+    }
+    <br />
+    <br />
+    <table class="table">
+        <tr id="linija_velika">
+            <th>
+                @Html.DisplayNameFor(model => model.Clan.Ime)
+            </th>
+            <th>
+                Naziv knjige
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DatumIzdavanja)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DatumVracanja)
+            </th>
+            <th></th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Clan.Ime)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Knjiga.Naziv)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.DatumIzdavanja)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.DatumVracanja)
+                </td>
+                <td>
+                    <div class="pull-right">
+                        @if (item.DatumVracanja == null)
+                        {
+                            @Html.ActionLink("Vrati knjigu", "Edit", "Izdavanjes", new { id = item.Knjiga.KnjigaId }, new { @class = "btn btn-danger" })
+                        }
+                        @Html.ActionLink("Obrisi izdavanje", "Delete", new { id = item.IzdavanjeId }, new { @class = "btn btn-primary" })
+                    </div>
+                </td>
+            </tr>
+        }
+
+    </table>
+</body>

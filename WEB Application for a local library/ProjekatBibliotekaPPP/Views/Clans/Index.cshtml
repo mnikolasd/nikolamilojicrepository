@@ -1,0 +1,225 @@
+﻿@model PagedList.IPagedList<ProjekatBibliotekaPPP.Models.ClanViewModel>
+@using PagedList.Mvc;
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<style>
+    body {
+        background-image: url("../../Content/Images/clanovi.jpg");
+        background-size: cover;
+    }
+
+    table, th, td, tr {
+        border-top: 1px solid black;
+        border-bottom: 1px solid black;
+    }
+
+    #oddo {
+        color: black;
+        font-size: 15px;
+        position: absolute;
+        left: 20%;
+    }
+
+    h2 {
+        color: #3A67A5;
+    }
+
+    #pretraga {
+        background-color: dodgerblue;
+        color: white;
+    }
+
+    #left {
+        position: absolute;
+        right: 280%;
+    }
+
+    #relativ {
+        position: relative;
+    }
+
+    table {
+        background-color: transparent;
+    }
+
+    #linija_velika {
+        border-bottom: 3px solid black;
+        border-top: 3px solid black;
+    }
+
+    .bojica {
+        color: #3A67A5;
+    }
+    #uspeh {
+        border-top: hidden;
+        border-bottom: hidden;
+    }
+    #obrisanaPoruka {
+        border-top: hidden;
+        border-bottom: hidden;
+    }
+</style>
+
+<div class="text-center">
+    <h2><b>Spisak Clanova</b></h2>
+</div>
+<br />
+@if (ViewData["Error"] != null)
+{
+    <div class="red">
+        <p><strong>Error:</strong> @ViewData["Error"].ToString()</p>
+    </div>
+}
+@if (TempData["Success"] != null)
+{
+    <div class="alert alert-success">
+        <table>
+            <tr id="uspeh">
+                <td>
+                    <b>@TempData["Success"].ToString()</b>
+                </td>
+                <td class="col-xs-10">
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </td>
+            </tr>
+        </table>
+    </div>
+}
+@if (TempData["deleted"] != null)
+{
+    <div class="alert alert-success">
+        <table>
+            <tr id="obrisanaPoruka">
+                <td>
+                    <b>@TempData["deleted"].ToString()</b>
+                </td>
+                <td class="col-xs-10">
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </td>
+            </tr>
+        </table>
+    </div>
+}
+<br />
+<br />
+
+
+
+<br />
+<form class="pull-right" asp-controller="Clans" asp-action="Index" id="relativ">
+    <div id="left">
+        <input type='button' class="btn btn-primary" value='Unos novog clana' onclick='window.location = "@Url.Action("Create", "Clans")";' />
+    </div>
+    <div>
+        <input type="text" name="SearchString">
+        <input class="btn btn-primary" type="submit" value="Pretrazi po Imenu clana" />
+        <br />
+        <br />
+    </div>
+</form>
+@if (Model.Count() > 0)
+{
+
+    <table class="table">
+        <tr id="linija_velika">
+            <th>
+                <b class="bojica">Ime i prezime</b>
+            </th>
+            <th>
+                <b class="bojica">Adresa</b>
+            </th>
+            <th>
+                <b class="bojica">Kontakt</b>
+            </th>
+            <th>
+                <b class="bojica">Datum isteka clanstva</b>
+            </th>
+            <th>
+
+            </th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            if (item.isValid == true)
+            {
+                <tr>
+                    <td>
+                        <b>
+                            @Html.DisplayFor(modelItem => item.Ime)
+                        </b>
+                    </td>
+                    <td>
+                        <b>
+                            @Html.DisplayFor(modelItem => item.Adresa)
+                        </b>
+                    </td>
+                    <td>
+                        <b>
+                            @Html.DisplayFor(modelItem => item.Kontakt)
+                        </b>
+                    </td>
+                    <td>
+                        <b>
+                            @Html.DisplayFor(modelItem => item.ClanstvoDo)
+                        </b>
+                    </td>
+                    <td class="pull-right">
+                        @Html.ActionLink("Izmeni podatke", "Edit", new { id = item.ClanID }, new { @class = "btn btn-success" })
+                        @Html.ActionLink("Detalji", "Details", new { id = item.ClanID }, new { @class = "btn btn-primary" })
+                        @Html.ActionLink("Obrisi clana", "Delete", new { id = item.ClanID }, new { @class = "btn btn-danger" })
+                    </td>
+                </tr>
+            }
+            else
+            {
+                <tr>
+                    <td>
+                        <b>
+                            @Html.DisplayFor(modelItem => item.Ime)
+                        </b>
+                    </td>
+                    <td>
+                        <b>
+                            @Html.DisplayFor(modelItem => item.Adresa)
+                        </b>
+                    </td>
+                    <td>
+                        <b>
+                            @Html.DisplayFor(modelItem => item.Kontakt)
+                        </b>
+                    </td>
+                    <td>
+                        <b>
+                            Clanstvo je isteklo.
+                        </b>
+                    </td>
+                    <td class="pull-right">
+                        @Html.ActionLink("Izmeni podatke", "Edit", new { id = item.ClanID }, new { @class = "btn btn-success" })
+                        @Html.ActionLink("Detalji", "Details", new { id = item.ClanID }, new { @class = "btn btn-primary" })
+                        @Html.ActionLink("Obrisi clana", "Delete", new { id = item.ClanID }, new { @class = "btn btn-danger" })
+                    </td>
+                </tr>
+            }
+        }
+
+    </table>
+    <br />
+    <div class="pagination" style="margin-left: 400px" id="oddo">
+        Stranica @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) od @Model.PageCount   @Html.PagedListPager(Model, page => Url.Action("Index", new { page }))
+    </div>
+}
+else
+{
+    <div class="alert alert-warning">
+        Trazeni clan ne postoji u bazi.
+    </div>
+}
+

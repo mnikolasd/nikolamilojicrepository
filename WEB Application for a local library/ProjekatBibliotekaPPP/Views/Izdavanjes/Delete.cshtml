@@ -1,0 +1,38 @@
+﻿@model ProjekatBibliotekaPPP.Models.Izdavanje
+
+@{
+    ViewBag.Title = "Delete";
+}
+<head>
+
+</head>
+<style>
+
+    h3 {
+        color: #3A67A5;
+    }
+
+    body {
+        background-image: url("../../Content/Images/izdavanja_1.jpg");
+        background-size: cover;
+    }
+
+    #info {
+        color: #3A67A5;
+    }
+</style>
+<body>
+<h3>Da li ste sigurni da zelite da obrisete ovo Izdavanje?</h3>
+<div id="info">
+    <hr />
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Obrisi" class="btn btn-danger"/> |
+            @Html.ActionLink("Vrati se na listu izdavanja", "Index")
+        </div>
+    }
+</div>
+</body>

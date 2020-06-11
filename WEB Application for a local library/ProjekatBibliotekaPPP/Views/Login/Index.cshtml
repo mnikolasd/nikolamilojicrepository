@@ -1,0 +1,96 @@
+﻿@model ProjekatBibliotekaPPP.Models.Login
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Login</title>
+    <style>
+        #login-div {
+            position: absolute;
+            left: 40%;
+            top: 40%;
+            border: 5px solid gray;
+            padding: 10px 10px;
+            background-color: darkred;
+        }
+        .field-validation-error {
+            color: red;
+        }
+        body { 
+            background-image: url("../Content/Images/login.jpg"); 
+
+        }
+        td {
+            color: white;
+        }
+        #login {
+            background-color: green;
+            border-radius: 20px 20px 5px 5px;
+            color: white;
+        }
+        #clear {
+            background-color: red;
+            border-radius: 5px 5px 20px 20px;
+            color: white;
+        }
+        #gore-desno{
+            float: right;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <div id="login-div"> 
+        @using (Html.BeginForm("Authorize","Login", FormMethod.Post))
+        {
+        <table>
+            <tr>
+                <td></td>
+                <td style="text-decoration:underline"><h3>Biblioteka</h3></td>
+            </tr>
+            <tr>
+                <td>@Html.LabelFor(model => model.UserName) :</td>
+                <td> @Html.EditorFor(model => model.UserName)</td>
+            </tr>
+            <tr>
+                <td></td>
+                <td>@Html.ValidationMessageFor(model => model.UserName)</td>
+            </tr>
+            <tr>
+                <td>@Html.LabelFor(model => model.Password) :</td>
+                <td>@Html.EditorFor(model => model.Password)</td>
+            </tr>
+            <tr>
+                <td></td>
+                <td>@Html.ValidationMessageFor(model => model.Password)</td>
+            </tr>
+            <tr>
+                <td colspan="2">
+                    <label class="field-validation-error">@Html.DisplayFor(model=> model.LoginErrorMessage)</label>
+                </td>
+            </tr>
+            <tr>
+                <td></td>
+                <td>
+                    <input type="submit" name="name" value="Login" id="login" />
+                    <input type="reset" name="name" value="Clear" id="clear" />
+                </td>
+            </tr>
+        </table>
+        }
+    </div>
+    <div id="gore-desno">
+        <h3>Developed by:</h3>
+        <h4>Strahinja Jovicic 410/15</h4>
+        <h4>Nikola Milojic 104/16</h4>
+    </div>
+    <script src="~/Scripts/jquery-3.3.1.min.js"></script>
+    <script src="~/Scripts/jquery.validate.min.js"></script>
+    <script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
+</body>
+</html>

@@ -1,0 +1,66 @@
+﻿@model ProjekatBibliotekaPPP.Models.Knjiga
+
+@{
+    ViewBag.Title = "Details";
+}
+<head>
+
+</head>
+<style>
+    body {
+        background-image: url("../../Content/Images/knjige.jpg");
+        background-size: cover;
+    }
+    h2 {
+        color: #3A67A5;
+    }
+    dl, dt, dd {
+        color: #3A67A5;
+    }
+</style>
+<body>
+<h2>O knjizi</h2>
+
+<div>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Naziv)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Naziv)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SerijskiBroj)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SerijskiBroj)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Autor)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Autor)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Izdavac)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Izdavac)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Izmeni", "Edit", new { id = Model.KnjigaId }) |
+    @Html.ActionLink("Obrisi knjigu", "Delete", new { id = Model.KnjigaId }) |
+    @Html.ActionLink("Vrati se na listu knjiga", "Index")
+</p>
+</body>

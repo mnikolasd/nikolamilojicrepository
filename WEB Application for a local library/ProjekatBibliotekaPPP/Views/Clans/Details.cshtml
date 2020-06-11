@@ -1,0 +1,66 @@
+﻿@model ProjekatBibliotekaPPP.Models.Clan
+
+@{
+    ViewBag.Title = "Details";
+}
+<head>
+
+</head>
+<style>
+    h2 {
+        color: #3A67A5;
+    }
+
+    body {
+        background-image: url("../../Content/Images/clanovi.jpg");
+        background-size: cover;
+    }
+    #info {
+        color: #3A67A5;
+    }
+</style>
+<body>
+    <h2>Detalji o clanu</h2>
+
+    <div id="info">
+        <hr />
+        <dl class="dl-horizontal">
+            <dt>
+                @Html.DisplayNameFor(model => model.Ime)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Ime)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Adresa)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Adresa)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Kontakt)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Kontakt)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.ClanstvoDo)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.ClanstvoDo)
+            </dd>
+
+        </dl>
+    </div>
+    <p>
+        @Html.ActionLink("Izmeni podatke o clanu", "Edit", new { id = Model.ClanID }) |
+        @Html.ActionLink("Vrati se na listu clanova", "Index")
+    </p>
+</body>
