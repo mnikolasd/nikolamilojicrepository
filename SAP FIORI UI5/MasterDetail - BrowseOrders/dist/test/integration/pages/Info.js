@@ -1,0 +1,1 @@
+sap.ui.define(["sap/ui/test/Opa5","./Common"],function(e,s){"use strict";e.createPageObjects({onTheInfoPage:{baseClass:s,assertions:{iShouldSeeTheInfoPage:function(){return this.waitFor({viewName:"Info",id:"objectPageLayout",success:function(s){e.assert.ok(s,"Found the info page ")}})}}}})});
